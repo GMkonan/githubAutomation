@@ -1,4 +1,4 @@
-![](images/Github_Logo.png)
+<img src="images/GitHub_Logo.png" />
 
 # Github Automation for Windows
 
