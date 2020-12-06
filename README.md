@@ -1,3 +1,5 @@
+![](images/Github_Logo.png)
+
 # Github Automation for Windows
 
 A github automation for my workflow inspired by [Kalle Halden video](https://www.youtube.com/watch?v=7Y8Ppin12r4) 
@@ -31,7 +33,7 @@ NOTE_PATH="path/to/project/note/file"
 
 IMPORTANT: you can get your token from https://github.com/settings/tokens . Just check the first box called "repo" and write something in the "Note" to generate it!
 
------ 
+-----
 
 Open `command.sh` and put the file path to index.py so the line will be `python file/path/index.py`.
 You need to put the `command.sh` file in your `~`. Thi is usually in `C:\Users\<your name>` folder, but you can see exactly what folder is

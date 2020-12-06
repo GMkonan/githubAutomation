@@ -1,5 +1,5 @@
 #!/bin/sh
 function create() {
-python D:/Documentos/GitHub/githubAutomation/index.py
+python D:/Documentos/Projetos/githubAutomation/index.py
 echo "done"
 }
