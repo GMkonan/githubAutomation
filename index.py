@@ -1,4 +1,3 @@
-
 import os
 import sys
 from github import Github
@@ -19,6 +18,7 @@ def create_note(folder_name):
     os.chdir(note_path) 
     
     #the "with" will guarantee the file will be closed :)
+    # the "w" writes to file but if it already exists, doesnt create
     with open(f"{folder_name}.md", "w") as f:
         f.writelines(f"# {folder_name}\n## Todo:\n - [ ] \n## Resources:\n- \n")
 
@@ -35,7 +35,7 @@ def automate():
     create_note(folder_name)
     #creates and starts git folder
     os.chdir(file_path)
-    os.system(f"mkdir {folder_name}")
+    os.makedirs(os.path.dirname(f"{file_path}/{folder_name}"), exist_ok=True)
     os.chdir(f"./{folder_name}")
     os.system("git init")
 
