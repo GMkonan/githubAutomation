@@ -9,8 +9,7 @@ A github automation for my workflow inspired by [Kalle Halden video](https://www
 A small script to make the process of starting your projects faster. I made this for myself since
 I use windows with git bash and the process of creating a project set was kinda boring after the 200 time,
 So this is script is made with my way of starting a project, create the repo, readme, push to github BUT also
-create a note file in markdown with a simple structure that I use to start my projects. If you get to like the way 
-I do feel free to use the script :)
+create a note file in markdown with a simple structure that I use to start my projects.You can use this command if you already have the folder and/or the note file created too.If you get to like the way I do feel free to use the script :)
 
 ## Getting Started
 
@@ -46,6 +45,14 @@ Now you can run the command from anywhere, the command is called `create` so jus
 ```bash
 create amazingProjectName
 ```
+
+You can create a **private** repo if you want too! just need to add a p. Here:
+
+```bash
+create AmazingPrivateProjectName p
+```
+
+And you will be set to go!
 
 ### Authors
 - [GMkonan](https://github.com/GMkonan)
