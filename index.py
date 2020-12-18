@@ -3,19 +3,18 @@ import sys
 from github import Github
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
-def createRepo(folder_name):
-    token = os.getenv("TOKEN")
-    if len(sys.argv) == 3:
-        if sys.argv[2] == "p":
-            print("Creating Private repository...")
-            Github(token).get_user().create_repo(folder_name, private=True)
-    else:
-        #use github token from .env file to get the user and create the repo
-        Github(token).get_user().create_repo(folder_name)
+#Create Repo functions
+token = os.getenv("TOKEN")
 
+def create_public_repo(folder_name):
+    Github(token).get_user().create_repo(folder_name)
+
+def create_private_repo(folder_name):
+    Github(token).get_user().create_repo(folder_name, private=True)
+
+#create note function
 def create_note(folder_name):
     note_path = os.getenv("NOTE_PATH")
     
@@ -27,6 +26,7 @@ def create_note(folder_name):
     with open(f"{folder_name}.md", "w") as f:
         f.writelines(f"# {folder_name}\n## Todo:\n - [ ] \n## Resources:\n- \n")
 
+#wrap up and automate all function
 def automate():
     
     file_path = os.getenv("FILE_PATH")
@@ -52,7 +52,15 @@ def automate():
     #creates repo, commits and push to master
     os.system("git add .")
     os.system(f'git commit -m "First commit for {folder_name}"')
-    createRepo(folder_name)
+
+    if len(sys.argv) == 3:
+        if sys.argv[2] == "p":
+            print("Creating Private repository...")
+            create_private_repo(folder_name)
+    else:
+        #use github token from .env file to get the user and create the repo
+        create_public_repo(folder_name)
+
     os.system(f"git remote add origin {Remote}")
     os.system("git push origin master")
     #finally open editor and lets code :)
