@@ -3,13 +3,18 @@ import sys
 from github import Github
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
-def create_repo(folder_name):
+def createRepo(folder_name):
     token = os.getenv("TOKEN")
-
-    #use github token from .env file to get the user and create the repo
-    Github(token).get_user().create_repo(folder_name)
+    if len(sys.argv) == 3:
+        if sys.argv[2] == "p":
+            print("Creating Private repository...")
+            Github(token).get_user().create_repo(folder_name, private=True)
+    else:
+        #use github token from .env file to get the user and create the repo
+        Github(token).get_user().create_repo(folder_name)
 
 def create_note(folder_name):
     note_path = os.getenv("NOTE_PATH")
@@ -35,8 +40,9 @@ def automate():
     create_note(folder_name)
     #creates and starts git folder
     os.chdir(file_path)
-    os.makedirs(os.path.dirname(f"{file_path}/{folder_name}"), exist_ok=True)
-    os.chdir(f"./{folder_name}")
+    path = os.path.join(file_path, folder_name)
+    os.makedirs(path, exist_ok=True)
+    os.chdir(f"{file_path}/{folder_name}")
     os.system("git init")
 
     #creates readme
@@ -46,7 +52,7 @@ def automate():
     #creates repo, commits and push to master
     os.system("git add .")
     os.system(f'git commit -m "First commit for {folder_name}"')
-    create_repo(folder_name)
+    createRepo(folder_name)
     os.system(f"git remote add origin {Remote}")
     os.system("git push origin master")
     #finally open editor and lets code :)
