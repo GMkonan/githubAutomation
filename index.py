@@ -18,12 +18,13 @@ def create_private_repo(folder_name):
 def create_note(folder_name):
     note_path = os.getenv("NOTE_PATH")
     
-    #change to path specified in the .env file
+    #change to path specified in the .env file, create folder, and cd to it.
     os.chdir(note_path) 
-    
+    os.mkdir(f"{folder_name}")
+    os.chdir(f"{folder_name}")
     #the "with" will guarantee the file will be closed :)
     # the "w" writes to file but if it already exists, doesnt create
-    with open(f"{folder_name}/v1.md", "w") as f:
+    with open("v1.md", "w") as f:
         f.writelines(f"# {folder_name}\n## Todo:\n - [ ] \n## Resources\n- \n## Screenshots")
 
 #wrap up and automate all function
