@@ -23,8 +23,8 @@ def create_note(folder_name):
     
     #the "with" will guarantee the file will be closed :)
     # the "w" writes to file but if it already exists, doesnt create
-    with open(f"{folder_name}.md", "w") as f:
-        f.writelines(f"# {folder_name}\n## Todo:\n - [ ] \n## Resources:\n- \n")
+    with open(f"{folder_name}/v1.md", "w") as f:
+        f.writelines(f"# {folder_name}\n## Todo:\n - [ ] \n## Resources\n- \n## Screenshots")
 
 #wrap up and automate all function
 def automate():
