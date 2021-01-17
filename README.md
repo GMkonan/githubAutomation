@@ -36,8 +36,10 @@ IMPORTANT: you can get your token from https://github.com/settings/tokens . Just
 
 Open `command.sh` and put the file path to index.py so the line will be `python file/path/index.py`.
 You need to put the `command.sh` file in your `~`. Thi is usually in `C:\Users\<your name>` folder, but you can see exactly what folder is
-by typing `echo ~` in yout git bash terminal. Inside this folder you will need to find a file called `.bash_profile`, open this file in any
-text editor and put `source ~/.command.sh` in the final line.
+by typing `echo ~` in yout git bash terminal. Inside this folder you will need to find a file called `bashrc`,open this file in any text editor and put `source ~/command.sh` in the final line.
+
+IMPORTANT: If you don't have the file `.bashrc` you can just create it! But if you are having any problems I suggest that you execute the command `copy > ~/.bashrc`, the command will give you a "command not found" error
+but windows will automaticaly create the file for you inside `~`.
 
 ### Executing
 Now you can run the command from anywhere, the command is called `create` so just go to your terminal and put:
